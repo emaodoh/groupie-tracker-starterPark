@@ -1,0 +1,14 @@
+Exercise 2: Decode JSON into a Slice of Artists
+Objective
+Use Go's encoding/json package to decode the full API response into a typed slice of Artist structs. This replaces the raw string output from Exercise 1 with structured data your program can actually work with.
+Your Task
+    9. Replace io.ReadAll with json.NewDecoder(response.Body).Decode(&artists) where artists is []Artist.
+    10. Print the name and creation date of each artist using a for range loop.
+    11. Print the total count of artists fetched using len(artists).
+
+Hints
+    • 💡 json.NewDecoder is more efficient than reading the full body first — it streams directly.
+    • 💡 The & before artists is required: Decode needs a pointer so it can write into your variable.
+
+Solution Outline
+var artists []Artist; json.NewDecoder(response.Body).Decode(&artists); for _, a := range artists { fmt.Println(a.Name, a.CreationDate) }
