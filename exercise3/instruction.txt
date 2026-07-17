@@ -1,0 +1,15 @@
+Exercise 4: Fetch All Four API Endpoints 
+Objective
+The Groupie Tracker API has four endpoints: artists, locations, dates, and relations. Define structs for each and write a fetch function for each one. At the end, all data should be loaded into memory before the server starts.
+Your Task
+    12. Visit the API root at https://groupietrackers.herokuapp.com/api to discover all four endpoints.
+    13. Define structs for Location, Date, and Relation. Note that Relation contains a map: map[string][]string.
+    14. Write a fetchAll() function that calls all four endpoints and returns errors if any fail.
+    15. Call fetchAll() in main() before starting the HTTP server, and log a fatal error if it fails.
+
+Hints
+    • 💡 The relations datesLocations field is a JSON object where keys are location strings and values are arrays of date strings — this maps to map[string][]string in Go.
+    • 💡 Use a single http.Client and reuse it across all four fetch calls for better performance.
+
+Solution Outline
+Define four structs. Write fetchArtists(), fetchLocations(), fetchDates(), fetchRelations() each using http.Get + json.Decode. Store results in package-level vars. Call all four in main() with error checking.
