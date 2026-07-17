@@ -2,15 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artist Names</title>
+    <title>Groupie Tracker - Home</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    
-    {{range .}}
-
-    <li>{{.Name}}</li>
-    {{end}}
-
+    <h1>Groupie Tracker Artists</h1>
+    <div class="artist-grid">
+        {{range .}}
+            <div class="artist-card">
+                <!-- Displays the artist's profile image -->
+                <img src="{{.Image}}" alt="{{.Name}}" width="200">
+                <h2>{{.Name}}</h2>
+                <p><strong>Formed:</strong> {{.CreationDate}}</p>
+                <p><strong>First Album:</strong> {{.FirstAlbum}}</p>
+            </div>
+        {{end}}
+    </div>
 </body>
 </html>

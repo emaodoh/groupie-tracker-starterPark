@@ -1,0 +1,74 @@
+/* Minimalist modern reset and dark theme background */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 2rem;
+}
+
+/* Page heading alignment */
+h1 {
+    text-align: center;
+    color: #ffffff;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+}
+
+/* Responsive Grid container layout for structural alignment */
+.artist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Rounded, floating individual artist info blocks */
+.artist-card {
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    padding-bottom: 1.5rem;
+    border: 1px solid #2d2d2d;
+}
+
+/* Smooth zoom transition when a user points at a card */
+.artist-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    border-color: #4a4a4a;
+}
+
+/* Responsively scales images inside the containers */
+.artist-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 1px solid #2d2d2d;
+}
+
+/* Name heading stylistic treatments */
+.artist-card h2 {
+    font-size: 1.3rem;
+    color: #ffffff;
+    margin: 1rem 0 0.5rem 0;
+    padding: 0 1rem;
+}
+
+/* Small contextual detail text typography rules */
+.artist-card p {
+    font-size: 0.9rem;
+    color: #aaaaaa;
+    margin: 0.4rem 0;
+    padding: 0 1rem;
+}
+
+/* Accentuating bold field labels inside paragraphs */
+.artist-card strong {
+    color: #cf6679; /* Vibrant accent color for highlights */
+}
