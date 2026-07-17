@@ -1,0 +1,15 @@
+Exercise 5: Start an HTTP Server and Serve a Home Page
+Objective
+Launch a Go HTTP server that listens on port 8080 and responds to the root URL with a basic HTML page listing artist names. This is your first step in connecting the data you've fetched to the web.
+Your Task
+    16. In main(), register a handler with http.HandleFunc("/", homeHandler).
+    17. Implement homeHandler to write a simple HTML response listing each artist's name.
+    18. Use http.ListenAndServe(":8080", nil) and visit http://localhost:8080 to confirm it works.
+    19. Serve static files (CSS/JS) from a static/ folder using http.FileServer.
+
+Hints
+    • 💡 fmt.Fprintln(w, html) writes directly to the browser — w is an http.ResponseWriter.
+    • 💡 Add http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static")))) to serve your CSS.
+
+Solution Outline
+Register / and /static/ handlers. homeHandler loops over artists slice and writes <li> items. Verify in browser. Then move the inline HTML into a template file (next exercise).
