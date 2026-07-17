@@ -39,7 +39,7 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 	tmpl, err := template.ParseFiles("static/home.html")
 
 	if err != nil {
-		log.Printf("error parsing template: ",err)
+		log.Printf("error parsing template: %v",err)
 
 		http.Error(w, "internal server error", http.StatusInternalServerError)
 		return
@@ -48,6 +48,6 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 	
 
 	if err = tmpl.Execute(w, store); err != nil{
-		log.Printf("error execute: ",err)
+		log.Printf("error execute: %v",err)
 	}
 }
