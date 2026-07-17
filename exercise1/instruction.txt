@@ -1,0 +1,15 @@
+Exercise 1: Fetch the Artists Endpoint    [ Beginner ]
+Objective
+Make your first HTTP request to the Groupie Tracker API and print the raw JSON response to your terminal. This establishes that your network connection works and helps you understand the shape of the data before you model it in Go.
+Your Task
+    1. Create a new Go file called main.go.
+    2. Use net/http to make a GET request to https://groupietrackers.herokuapp.com/api/artists.
+    3. Read the response body using io.ReadAll and print it with fmt.Println.
+    4. Confirm you can see a JSON array of artists in your terminal.
+
+Hints
+    • 💡 Always defer response.Body.Close() immediately after checking the error from http.Get.
+    • 💡 The response body is an io.Reader — io.ReadAll converts it to a []byte you can print.
+
+Solution Outline
+Call http.Get → check err → defer Body.Close() → io.ReadAll(response.Body) → fmt.Println(string(body)). You should see raw JSON starting with [{"id":1,"name":...}].
