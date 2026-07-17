@@ -25,7 +25,9 @@ func main() {
 	fmt.Println("Artist loaded successfully")
 	http.HandleFunc("/", homeHandler)
 	fmt.Println("server is live")
-	http.ListenAndServe(":8080", nil)
+	if err = http.ListenAndServe(":8080", nil); err != nil{
+		log.Fatal(err)
+	}
 }
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
@@ -37,7 +39,7 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 	tmpl, err := template.ParseFiles("static/home.html")
 
 	if err != nil {
-		log.Println(err)
+		log.Printf("error parsing template: ",err)
 
 		http.Error(w, "internal server error", http.StatusInternalServerError)
 		return
@@ -45,5 +47,7 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 
 	
 
-	tmpl.Execute(w, store)
+	if err = tmpl.Execute(w, store); err != nil{
+		log.Printf("error execute: ",err)
+	}
 }
